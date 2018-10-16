@@ -8,7 +8,8 @@
 </head>
 <body>
 	<center>
-		<form action="insertVendor" method="post">
+	<h3>Welcome To Vendor registration</h3>
+		<form action="insertVen" method="post">
 			<table>
 				<tr>
 					<td>Code</td>
@@ -30,10 +31,7 @@
 					<td></td>
 					<td><input type="radio" name="venType" value="PARTTIME">PARTTIME</td>
 				</tr>
-				<tr>
-					<td>Address</td>
-					<td><textarea name="addr" /></td>
-				</tr>
+				
 				<tr>
 					<td>ID PROOF</td>
 					<td><select name="idtype">
@@ -49,11 +47,11 @@
 				</tr>
 				<tr>
 					<td>Address</td>
-					<td><textarea name="addr" /></td>
+					<td><textarea name="addr"></textarea></td>
 				</tr>
 				<tr>
 					<td>NOTE</td>
-					<td><textarea name="dsc" /></td>
+					<td><textarea name="dsc"></textarea></td>
 				</tr>
 				<tr>
 					<td></td>
@@ -62,6 +60,8 @@
 			</table>
 		</form>
 		${msg}
+		<br>
+		<a href="viewAllVendors">View All Details Of Vendors</a>
 	</center>
 </body>
 </html>
