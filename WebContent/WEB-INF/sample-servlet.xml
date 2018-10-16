@@ -17,6 +17,8 @@
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		p:prefix="/WEB-INF/views/" p:suffix=".jsp" />
+		
+	<bean class="org.springframework.web.servlet.view.XmlViewResolver" p:location="/WEB-INF/spring-views.xml" />
 
 	<bean name="dmds"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"

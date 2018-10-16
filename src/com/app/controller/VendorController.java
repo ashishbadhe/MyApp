@@ -2,6 +2,8 @@ package com.app.controller;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -20,6 +22,8 @@ public class VendorController {
 	private IVendorService service;
 	@Autowired
 	private VendorUtil vendorUtil;
+	@Autowired
+	private ServletContext context;
 	
 	@RequestMapping("/venReg")
 	public String showRegPage(){
@@ -66,5 +70,31 @@ public class VendorController {
 		service.updateVendor(ven);
 		return "redirect:viewAllVendors";
 	}
+	
+	@RequestMapping("/excelExport")
+	public String exportDataInExcel(ModelMap map){
+		List<Vendor> venOb = service.getAllVendors();
+		map.addAttribute("venOb", venOb);
+		return "vendorExcelView";
+	}
+	
+	@RequestMapping("/pdfExport")
+	public String exportDataInPdf(ModelMap map){
+		List<Vendor> ven = service.getAllVendors();
+		map.addAttribute("venOb", ven);
+		return "vendorPdfView";
+	}
+	
+	@RequestMapping("/genReport")
+	public String generateReports(ModelMap map){
+		List<Object[]> venObj = service.getVendorTypeCount();
+		String path = context.getRealPath("/");
+		vendorUtil.generatePieChart(path, venObj);
+		vendorUtil.generateBarChart(path, venObj);
+		return "VendorReports";
+	}
+	
+	
+	
 	
 }

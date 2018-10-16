@@ -10,4 +10,6 @@ public interface IVendorService {
 	public void deleteVendor(String VenId);
 	public Vendor getVendorById(String venId);
 	public List<Vendor> getAllVendors();
+	
+	public List<Object[]> getVendorTypeCount();
 }

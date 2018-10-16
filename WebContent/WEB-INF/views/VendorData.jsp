@@ -10,6 +10,7 @@
 <body>
 	<center>
 		<h3>All Vendors details</h3>
+		<a href="excelExport">Export To Excel</a> | <a href="pdfExport">Export To PDF</a>
 		<table border="1">
 			<tr>
 				<th>ID</th>
@@ -40,6 +41,7 @@
 				</tr>
 			</c:forEach>
 		</table>
+		<a href="genReport">Generate Report</a>
 	</center>
 </body>
 </html>

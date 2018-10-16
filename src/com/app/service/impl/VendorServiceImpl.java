@@ -39,4 +39,9 @@ public class VendorServiceImpl implements IVendorService {
 		return dao.getAllVendors();
 	}
 
+	public List<Object[]> getVendorTypeCount() {
+		
+		return dao.getVendorTypeCount();
+	}
+
 }

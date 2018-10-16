@@ -2,6 +2,7 @@ package com.app.dao.impl;
 
 import java.util.List;
 
+import org.apache.catalina.ant.FindLeaksTask;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -40,6 +41,14 @@ public class VendorDaoImpl implements IVendorDao {
 	@Override
 	public List<Vendor> getAllVendors() {
 		return ht.loadAll(Vendor.class);
+	}
+
+
+	public List<Object[]> getVendorTypeCount() {
+		
+		String hql = "select venType, count(venType) from "+Vendor.class.getName()+" group by venType";
+		List<Object[]> venObj = ht.find(hql);
+		return venObj;
 	}
 
 }
