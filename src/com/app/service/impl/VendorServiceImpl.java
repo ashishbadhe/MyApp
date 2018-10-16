@@ -15,7 +15,7 @@ public class VendorServiceImpl implements IVendorService {
 	
 	
 	@Override
-	public int saveVendor(Vendor ven) {
+	public String saveVendor(Vendor ven) {
 		return dao.saveVendor(ven);
 	}
 
@@ -25,12 +25,12 @@ public class VendorServiceImpl implements IVendorService {
 	}
 
 	@Override
-	public void deleteVendor(int VenId) {
+	public void deleteVendor(String VenId) {
 		dao.deleteVendor(VenId);
 	}
 
 	@Override
-	public Vendor getVendorById(int venId) {
+	public Vendor getVendorById(String venId) {
 		return dao.getVendorById(venId);
 	}
 

@@ -14,8 +14,8 @@ public class VendorDaoImpl implements IVendorDao {
 	private HibernateTemplate ht;
 	
 	@Override
-	public int saveVendor(Vendor ven) {
-		return (Integer) ht.save(ven);
+	public String saveVendor(Vendor ven) {
+		return (String) ht.save(ven);
 	}
 
 	@Override
@@ -24,14 +24,14 @@ public class VendorDaoImpl implements IVendorDao {
 	}
 
 	@Override
-	public void deleteVendor(int venId) {
+	public void deleteVendor(String venId) {
 		Vendor ven = new Vendor();
 		ven.setVenId(venId);
 		ht.delete(ven);
 	}
 
 	@Override
-	public Vendor getVendorById(int venId) {
+	public Vendor getVendorById(String venId) {
 		Vendor ven = ht.get(Vendor.class, venId);
 		
 		return ven;

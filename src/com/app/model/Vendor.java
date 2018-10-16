@@ -15,7 +15,7 @@ public class Vendor {
 	@GeneratedValue(generator="abc")
 	@GenericGenerator(name="abc", strategy="com.app.generator.IdGenerator")
 	@Column(name="ven_id")
-	private int venId;
+	private String venId;
 	@Column(name="ven_code")
 	private String venCode;
 	@Column(name="ven_name")
@@ -34,11 +34,11 @@ public class Vendor {
 	public Vendor() {
 	}
 
-	public Vendor(int venId) {
+	public Vendor(String venId) {
 		this.venId = venId;
 	}
 
-	public Vendor(int venId, String venCode, String venName, String venType,
+	public Vendor(String venId, String venCode, String venName, String venType,
 			String addr, String idType, String idNum, String dsc) {
 		this.venId = venId;
 		this.venCode = venCode;
@@ -50,11 +50,11 @@ public class Vendor {
 		this.dsc = dsc;
 	}
 
-	public int getVenId() {
+	public String getVenId() {
 		return venId;
 	}
 
-	public void setVenId(int venId) {
+	public void setVenId(String venId) {
 		this.venId = venId;
 	}
 
