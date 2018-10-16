@@ -16,7 +16,7 @@
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-		p:prefix="/WEBINF/views/" p:suffix=".jsp" />
+		p:prefix="/WEB-INF/views/" p:suffix=".jsp" />
 
 	<bean name="dmds"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
@@ -25,6 +25,7 @@
 
 	<bean name="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dmds" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
@@ -35,10 +36,9 @@
 		</property>
 		<property name="annotatedClasses">
 			<list>
-				
+				<value>com.app.model.Vendor</value>
 			</list>
 		</property>
-		<property name="dmds" ref="dmds" />
 	</bean>
 	<bean name="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate"
 		p:sessionFactory-ref="sessionFactory"></bean>
