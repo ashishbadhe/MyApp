@@ -49,4 +49,15 @@ public class CustomerDaoImpl implements ICustomerDao {
 		return custObj;
 	}
 
+	
+	public Customer getCustomerByEmail(String email) {
+		Customer cust = null;
+		String hql = "from "+Customer.class.getName()+" where cuustEmail=? ";
+		List<Customer> custList = ht.find(hql, email);
+		if(custList!=null && custList.size()>0){
+			cust=custList.get(0);
+		}
+		return cust;
+	}
+
 }

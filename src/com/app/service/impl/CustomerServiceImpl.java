@@ -5,43 +5,47 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.app.dao.IVendorDao;
-import com.app.model.Vendor;
-import com.app.service.IVendorService;
+import com.app.dao.ICustomerDao;
+import com.app.model.Customer;
+import com.app.service.ICustomerService;
 @Service
-public class CustomerServiceImpl implements IVendorService {
+public class CustomerServiceImpl implements ICustomerService {
 	@Autowired
-	private IVendorDao dao;
+	private ICustomerDao dao;
 	
+	@Override
+	public String saveCustomer(Customer cust) {
+		return dao.saveCustomer(cust);
+	}
+
+	@Override
+	public void updateCustomer(Customer cust) {
+		dao.updateCustomer(cust);
+	}
+
+	@Override
+	public void deleteCustomer(String custId) {
+		dao.deleteCustomer(custId);
+	}
+
+	@Override
+	public Customer getCustomerById(String custId) {
+		return dao.getCustomerById(custId);
+	}
+
+	@Override
+	public List<Customer> getAllCustomers() {
+		return dao.getAllCustomers();
+	}
+
+	public List<Object[]> getCustomerTypeCount() {
+		return dao.getCustomerTypeCount();
+	}
+
+	@Override
+	public Customer getCustomerByEmail(String email) {
+		return dao.getCustomerByEmail(email);
+	}
 	
-	@Override
-	public String saveVendor(Vendor ven) {
-		return dao.saveVendor(ven);
-	}
-
-	@Override
-	public void updateVendor(Vendor ven) {
-		dao.updateVendor(ven);
-	}
-
-	@Override
-	public void deleteVendor(String VenId) {
-		dao.deleteVendor(VenId);
-	}
-
-	@Override
-	public Vendor getVendorById(String venId) {
-		return dao.getVendorById(venId);
-	}
-
-	@Override
-	public List<Vendor> getAllVendors() {
-		return dao.getAllVendors();
-	}
-
-	public List<Object[]> getVendorTypeCount() {
-		
-		return dao.getVendorTypeCount();
-	}
 
 }

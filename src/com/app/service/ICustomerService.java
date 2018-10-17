@@ -12,4 +12,5 @@ public interface ICustomerService {
 	public List<Customer> getAllCustomers();
 	
 	public List<Object[]> getCustomerTypeCount();
+	public Customer getCustomerByEmail(String email);
 }

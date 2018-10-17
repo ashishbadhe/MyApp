@@ -11,4 +11,6 @@ public interface ICustomerDao {
 	public Customer getCustomerById(String custId);
 	public List<Customer> getAllCustomers();
 	public List<Object[]> getCustomerTypeCount();
+	
+	public Customer getCustomerByEmail(String email);
 }

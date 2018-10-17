@@ -11,4 +11,19 @@
 		<servlet-name>sample</servlet-name>
 		<url-pattern>/mvc/*</url-pattern>
 	</servlet-mapping>
+	<context-param>
+		<param-name>ContextConfigLocation</param-name>
+		<param-value>/WEB-INF/sample-servlet.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>test</servlet-name>
+		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
 </web-app>
