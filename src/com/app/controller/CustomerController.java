@@ -24,6 +24,11 @@ public class CustomerController {
 	@Autowired
 	private CodecUtil codecUtil;
 	
+	@RequestMapping("/custReg")
+	public String showCustRegPAge(){
+		return "CustomerReg";
+	}
+	
 	@RequestMapping(value="/insertCustomer", method=RequestMethod.POST)
 	public String saveCustomer(@ModelAttribute("customer")Customer cust, ModelMap map){
 		String token = codeUtil.generateToken();
